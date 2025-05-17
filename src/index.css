@@ -10,8 +10,11 @@
 
     --dark-para: 210, 3%, 36%;
 
+    --gray-background: 180, 5%, 96%;
+
     --card: 60 20% 97%;
     --card-foreground: 217 10% 16%;
+    --card-shadow: 180, 5%, 96%, 1;
 
     --popover: 60 20% 97%;
     --popover-foreground: 217 10% 16%;
@@ -45,8 +48,11 @@
 
     --dark-para: 200, 2%, 68%;
 
+    --gray-background: 204, 10%, 10%, 1;
+
     --card: 217 10% 16%;
     --card-foreground: 60 20% 97%;
+    --card-shadow: 180, 3%, 15%;
 
     --popover: 217 10% 16%;
     --popover-foreground: 60 20% 97%;

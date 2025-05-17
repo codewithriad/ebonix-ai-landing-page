@@ -47,6 +47,8 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         para: "hsl(var(--dark-para))",
+        grayBackground: "hsl(var(--gray-background))",
+        cardShadow: "hsl(var(--card-shadow))",
 
         primary: {
           DEFAULT: "hsl(var(--primary))",
