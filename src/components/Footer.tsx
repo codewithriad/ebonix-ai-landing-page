@@ -1,124 +1,77 @@
-const Footer = () => {
-  const currentYear = new Date().getFullYear();
+import { Facebook, Twitter } from "lucide-react";
+import React from "react";
 
-  const footerLinks = [
-    {
-      title: "Product",
-      links: [
-        { name: "Features", href: "#features" },
-        { name: "Pricing", href: "#pricing" },
-        { name: "Testimonials", href: "#" },
-        { name: "FAQ", href: "#" },
-      ],
-    },
-    {
-      title: "Company",
-      links: [
-        { name: "About", href: "#about" },
-        { name: "Blog", href: "#" },
-        { name: "Careers", href: "#" },
-        { name: "Contact", href: "#" },
-      ],
-    },
-    {
-      title: "Resources",
-      links: [
-        { name: "Documentation", href: "#" },
-        { name: "Guides", href: "#" },
-        { name: "API Reference", href: "#" },
-        { name: "Support", href: "#" },
-      ],
-    },
-    {
-      title: "Legal",
-      links: [
-        { name: "Privacy Policy", href: "#" },
-        { name: "Terms of Service", href: "#" },
-        { name: "Cookie Policy", href: "#" },
-        { name: "GDPR", href: "#" },
-      ],
-    },
-  ];
-
+const Footer: React.FC = () => {
   return (
-    <footer className="py-16 bg-ebonix-black border-t border-ebonix-gray-medium mt-16">
-      <div className="container-custom">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
-          <div className="lg:col-span-2">
-            <div className="mb-6">
-              <div className="text-3xl font-bold gradient-text mb-2">
-                ebonix
-              </div>
-              <p className="text-ebonix-gray-light max-w-md">
-                Transforming the digital landscape with cutting-edge solutions
-                that empower businesses to achieve their full potential.
-              </p>
-            </div>
-            <div className="flex space-x-4">
-              {["twitter", "facebook", "instagram", "linkedin"].map(
-                (social) => (
-                  <a
-                    key={social}
-                    href={`#${social}`}
-                    className="w-10 h-10 rounded-full bg-ebonix-gray-dark flex items-center justify-center hover:bg-ebonix-purple transition-colors"
-                  >
-                    <span className="sr-only">{social}</span>
-                    <svg
-                      className="w-5 h-5"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm0 18c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z" />
-                    </svg>
-                  </a>
-                )
-              )}
-            </div>
+    <footer className="bg-grayBackground px-6 py-10 rounded-[3rem] max-w-7xl mx-auto my-10">
+      <div className="flex flex-col md:flex-row justify-between gap-10">
+        {/* Left */}
+        <div className="space-y-6">
+          {/* Logo for Light and Dark */}
+          <div className="h-8">
+            {/* <img src={DarkLogo} alt="dark-logo" className="h-full" /> */}
+            <img
+              src="http://localhost:8080/dark-nav-logo.png"
+              alt="Ebonix"
+              className="hidden dark:block h-full"
+            />
+            <img
+              src="/light-nav-logo.png"
+              alt="Ebonix Ai"
+              className="block dark:hidden h-full"
+            />
           </div>
-
-          {footerLinks.map((category) => (
-            <div key={category.title}>
-              <h3 className="text-lg font-semibold mb-4">{category.title}</h3>
-              <ul className="space-y-3">
-                {category.links.map((link) => (
-                  <li key={link.name}>
-                    <a
-                      href={link.href}
-                      className="text-ebonix-gray-light hover:text-ebonix-purple-light transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <address className="not-italic text-base text-para leading-relaxed">
+            1680 Michigan Avenue Suite 700 <br />
+            Miami Beach, FL 33139 USA
+          </address>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-ebonix-gray-medium flex flex-col md:flex-row justify-between items-center">
-          <p className="text-ebonix-gray-light text-sm mb-4 md:mb-0">
-            &copy; {currentYear} ebonix. All rights reserved.
-          </p>
-          <div className="flex space-x-6">
-            <a
-              href="#"
-              className="text-sm text-ebonix-gray-light hover:text-ebonix-purple-light transition-colors"
-            >
-              Privacy Policy
-            </a>
-            <a
-              href="#"
-              className="text-sm text-ebonix-gray-light hover:text-ebonix-purple-light transition-colors"
-            >
-              Terms of Service
-            </a>
-            <a
-              href="#"
-              className="text-sm text-ebonix-gray-light hover:text-ebonix-purple-light transition-colors"
-            >
-              Cookie Policy
-            </a>
+        {/* Middle */}
+        <div className="flex gap-20">
+          <div className="space-y-2">
+            <h4 className="font-semibold text-base text-para">Product</h4>
+            <ul className="space-y-4 text-para text-base font-bold">
+              <li>
+                <a href="#" className="hover:underline">
+                  Pricing
+                </a>
+              </li>
+            </ul>
           </div>
+
+          <div className="space-y-4">
+            <h4 className="font-semibold text-base text-para">
+              Terms of services
+            </h4>
+            <ul className="space-y-4 text-para text-base font-bold">
+              <li>
+                <a href="#" className="hover:underline">
+                  Privacy policy
+                </a>
+              </li>
+              <li>
+                <a href="#" className="hover:underline">
+                  Refund policy
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom */}
+      <div className="mt-10 flex flex-col md:flex-row justify-between items-center text-base text-para">
+        <p>
+          © 2023 Copyright <span className="font-bold">Ebonix</span>
+        </p>
+        <div className="flex space-x-4 mt-4 md:mt-0 md:mr-20">
+          <a href="#" aria-label="Facebook" className="hover:text-foreground">
+            <Facebook size={20} />
+          </a>
+          <a href="#" aria-label="Twitter" className="hover:text-foreground">
+            <Twitter size={20} />
+          </a>
         </div>
       </div>
     </footer>

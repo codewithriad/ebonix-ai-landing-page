@@ -15,7 +15,7 @@ const Navbar = () => {
           {theme === "light" ? (
             <img src="/light-nav-logo.png" alt="Ebonix" className="h-10" />
           ) : (
-            <img src="/dark-nav-logo .png" alt="Ebonix" className="h-10" />
+            <img src="/dark-nav-logo.png" alt="Ebonix" className="h-10" />
           )}
         </div>
 
