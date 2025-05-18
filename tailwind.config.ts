@@ -49,6 +49,7 @@ export default {
         para: "hsl(var(--dark-para))",
         grayBackground: "hsl(var(--gray-background))",
         cardShadow: "hsl(var(--card-shadow))",
+        searchText: "hsl(var(--search-text))",
 
         primary: {
           DEFAULT: "hsl(var(--primary))",

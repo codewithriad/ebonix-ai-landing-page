@@ -1,30 +1,79 @@
+// components/Sidebar.tsx
 import { IconArrowBarLeft, IconArrowBarRight } from "@tabler/icons-react";
-import React, { useState } from "react";
+import {
+  Code,
+  EllipsisVertical,
+  FileText,
+  Image,
+  MessageCircle,
+  Mic,
+  Sliders,
+  Volume2,
+} from "lucide-react";
 
-const Sidebar: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(false);
+interface SidebarProps {
+  collapsed: boolean;
+  setCollapsed: (collapsed: boolean) => void;
+  menuItems: { icon: React.ReactNode; label: string }[];
+}
 
-  const menuItems = [
-    { icon: "🏠", label: "Home" },
-    { icon: "📚", label: "Library" },
-    { icon: "💬", label: "Chat" },
-    { icon: "✍️", label: "Writer" },
-    { icon: "👨‍💻", label: "Coder" },
-    { icon: "🎨", label: "Imagine" },
-    { icon: "🎙️", label: "Voiceover" },
-    { icon: "🔊", label: "Voice Isolator" },
+const Sidebar: React.FC<SidebarProps> = ({
+  collapsed,
+  setCollapsed,
+  menuItems,
+}) => {
+  const tools = [
+    {
+      name: "Chat",
+      icon: <MessageCircle className="w-3 h-3" />,
+      color: "bg-blue-500",
+    },
+    {
+      name: "Writer",
+      icon: <FileText className="w-3 h-3" />,
+      color: "bg-orange-400",
+    },
+    { name: "Coder", icon: <Code className="w-3 h-3" />, color: "bg-rose-400" },
+    {
+      name: "Imagine",
+      icon: <Image className="w-3 h-3" />,
+      color: "bg-purple-400",
+    },
+    {
+      name: "Transcriber",
+      icon: <Mic className="w-3 h-3" />,
+      color: "bg-teal-400",
+    },
+    {
+      name: "Voiceover",
+      icon: <Volume2 className="w-3 h-3" />,
+      color: "bg-lime-400",
+    },
+    // {
+    //   name: "Voice isolator",
+    //   icon: <Sound className="w-5 h-5" />,
+    //   color: "bg-indigo-400",
+    // },
+    {
+      name: "Classifier",
+      icon: <Sliders className="w-3 h-3" />,
+      color: "bg-pink-400",
+    },
   ];
+
   return (
     <div
       className={`${
         collapsed ? "w-20" : "w-64"
-      } h-[700px] bg-grayBackground text-foreground p-6 relative transition-all duration-300`}
+      } h-auto hidden md:block bg-grayBackground text-foreground transition-all duration-300 p-4 md:p-6 relative`}
     >
-      <div className="flex justify-between items-center">
-        {!collapsed && <h1 className="text-2xl font-bold mb-8">Ebonix Ai</h1>}
+      {/* Header */}
+      <div className="flex justify-between items-center mb-8">
+        {!collapsed && <h1 className="text-xl font-bold">Ebonix Ai</h1>}
         <button
           onClick={() => setCollapsed(!collapsed)}
-          className="absolute top-4 right-4 text-gray-400"
+          className="text-gray-400 ml-auto"
+          aria-label="Toggle Sidebar"
         >
           {collapsed ? (
             <IconArrowBarRight size={20} className="text-para" />
@@ -34,19 +83,54 @@ const Sidebar: React.FC = () => {
         </button>
       </div>
 
-      <ul className="space-y-3 text-base mt-12">
+      {/* Menu Items */}
+      <ul className="space-y-4 text-base">
         {menuItems.map((item, idx) => (
-          <li key={idx} className="flex items-center gap-2">
+          <li
+            key={idx}
+            className="flex items-center gap-3 hover:text-foreground cursor-pointer"
+          >
             <span>{item.icon}</span>
             {!collapsed && <span>{item.label}</span>}
           </li>
         ))}
       </ul>
 
+      {/* sidebar tools */}
+      <div className="text-foreground py-6 mt-4">
+        <h2 className="text-xl font-semibold">Tools</h2>
+        <ul className="space-y-6 mt-8">
+          {tools.map((tool, idx) => (
+            <li key={idx} className="flex items-center gap-4">
+              <div className={`p-2 rounded-full ${tool.color}`}>
+                {tool.icon}
+              </div>
+              {!collapsed && <span>{tool.name}</span>}
+            </li>
+          ))}
+        </ul>
+      </div>
+
       {/* Footer */}
-      <div className="text-base text-gray-400 absolute bottom-4">
-        <p>{!collapsed ? "Jaylen Dean" : "👤"}</p>
-        {!collapsed && <p className="text-[10px]">Free Plan</p>}
+      <div className="absolute bottom-4">
+        <div className="flex justify-between items-center gap-4">
+          <div className="flex items-start gap-3">
+            <img
+              src="/user.png"
+              alt="user"
+              className={`object-cover rounded-full ${
+                collapsed ? "w-5 h-5" : "w-10 h-10"
+              }`}
+            />
+            {!collapsed && (
+              <div className="text-sm">
+                <h3 className="font-semibold text-base">Jayden Smith</h3>
+                <p className="text-xs text-para">Free Plan</p>
+              </div>
+            )}
+          </div>
+          <EllipsisVertical className="text-para" />
+        </div>
       </div>
     </div>
   );

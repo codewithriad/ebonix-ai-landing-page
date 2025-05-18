@@ -11,7 +11,7 @@ const DashboardHeader: React.FC = () => {
   return (
     <div className="py-6">
       <div className="py-6">
-        <div className="mb-4 md:mb-0">
+        <div className="mb-4 md:mb-0 text-center md:text-left">
           <p className="text-para">Welcome</p>
           <h2 className="text-xl font-semibold text-foreground">
             Jayden Smith
@@ -19,7 +19,7 @@ const DashboardHeader: React.FC = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
         <Card className="col-span-2 bg-background text-foreground border shadow-cardShadow shadow-md">
           <CardHeader>
             <CardTitle>Welcome</CardTitle>
