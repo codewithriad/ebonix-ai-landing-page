@@ -1,14 +1,27 @@
 import { useTheme } from "@/components/ThemeProvider";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, Moon, Sun } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isShadow, setIsShadow] = useState(false);
   const { theme, setTheme } = useTheme();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsShadow(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="py-6 md:py-8 relative z-20">
+    <nav
+      className={`sticky top-0 left-0 w-full bg-background py-6 md:py-8 z-20 transition-all ${
+        isShadow ? "shadow-lg" : ""
+      }`}
+    >
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">

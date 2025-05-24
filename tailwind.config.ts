@@ -51,6 +51,8 @@ export default {
         cardShadow: "hsl(var(--card-shadow))",
         searchText: "hsl(var(--search-text))",
 
+        gradientColor: "hsl(var(--border-gradient))",
+
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

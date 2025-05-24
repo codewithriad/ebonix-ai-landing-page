@@ -34,6 +34,7 @@
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 60 20% 97%;
+    --border-gradient: 45deg, #b4cf5b, #2dcdf5;
 
     --border: 60 20% 90%;
     --input: 60 20% 90%;
@@ -91,7 +92,23 @@
       Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
 }
+.gradient-border {
+  position: relative;
+  border-radius: 1.5rem; /* same as rounded-3xl */
+  padding: 8px; /* padding inside border */
+  background: linear-gradient(45deg, #e7ff9b, #cfe6ff);
+}
 
+.gradient-border > .content {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
 /* Custom classes */
 .gradient-text {
   @apply text-transparent bg-clip-text bg-gradient-to-r from-ebonix-purple to-ebonix-purple-light;
