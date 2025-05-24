@@ -96,7 +96,7 @@ export default function CoolestFeatures() {
       className={`min-h-screen mt-8 py-12 px-4 transition-colors duration-300
          bg-background text-foreground`}
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="container-custom relative z-10">
         <h1 className="text-4xl font-bold text-center mb-12">
           Coolest Features
         </h1>
