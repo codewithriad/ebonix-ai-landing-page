@@ -13,37 +13,43 @@ const iconStyle = "w-6 h-6";
 const icons = [
   {
     Icon: IconUsers,
-    color: "#9C73F1",
+    color: "text-[#9C73F1]",
+    BorderColor: "#9C73F1",
     bgColor: "bg-[#FDF9EE]",
     position: "top-[-20px] left-14 rotate-[-15deg]",
   },
   {
     Icon: IconSeo,
-    color: "#00A6FB",
+    color: "text-[#00A6FB]",
+    BorderColor: "#00A6FB",
     bgColor: "bg-[#E2F5FF]",
     position: "top-[38%] left-4 md:left-20 rotate-[15deg]",
   },
   {
     Icon: IconRocket,
-    color: "#BCE143",
+    color: "text-[#BCE143]",
+    BorderColor: "#BCE143",
     bgColor: "bg-[#F9FDEC]",
     position: "bottom-0 left-[50px] rotate-[-10deg]",
   },
   {
     Icon: IconLayoutGrid,
-    color: "#FE5157",
+    color: "text-[#FE5157]",
+    BorderColor: "#FE5157",
     bgColor: "bg-[#FFECEC]",
     position: "top-0 right-[50px] rotate-[12deg]",
   },
   {
     Icon: IconSun,
-    color: "#353C45",
+    color: "text-[#353C45]",
+    BorderColor: "#353C45",
     bgColor: "bg-[#F5F6F6]",
     position: "top-[38%] right-4 md:right-20 rotate-[-8deg]",
   },
   {
     Icon: IconPhoto,
-    color: "#30C862",
+    color: "text-[#30C862]",
+    BorderColor: "#30C862",
     bgColor: "bg-[#E8F9EE]",
     position: "bottom-[-20px] right-14 rotate-[8deg]",
   },
@@ -68,17 +74,15 @@ const GetStartedSection = () => {
           </button>
         </div>
 
-        {icons.map(({ Icon, color, bgColor, position }, idx) => (
+        {icons.map(({ Icon, color, bgColor, BorderColor, position }, idx) => (
           <div
             key={idx}
-            className={`absolute ${position} w-12 h-12 ${bgColor} z-20 rounded-xl 
-      border-t-2 border-l-2 border-r-[4px] border-b-[4px] 
-       flex justify-center items-center`}
+            className={`absolute ${position} w-12 h-12 ${bgColor} z-20 rounded-xl border-t-2 border-l-2 border-r-[4px] border-b-[4px] border- flex justify-center items-center`}
             style={{
-              borderColor: color, // ✅ dynamic border color
+              borderColor: BorderColor,
             }}
           >
-            <Icon className={`${iconStyle} text-[${color}]`} />
+            <Icon className={`${iconStyle} ${color}`} />
           </div>
         ))}
       </div>

@@ -1,5 +1,5 @@
 import {
-  CodeXml,
+  Code,
   Cpu,
   CreditCard,
   Database,
@@ -21,7 +21,7 @@ type FeatureCard = {
 export default function CoolestFeatures() {
   const features: FeatureCard[] = [
     {
-      icon: <CodeXml className="w-6 h-auto text-foreground" />,
+      icon: <Code className="w-6 h-auto text-foreground" />,
       title: "High Quality Code",
       description:
         "Developed using Domain-Driven Design and Clean Architecture Principles.",
