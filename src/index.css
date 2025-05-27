@@ -29,6 +29,9 @@
     --muted: 60 20% 94%;
     --muted-foreground: 215 20% 65%;
 
+    --mobile-mockup-bg: 180, 5%, 96%, 1;
+    --speech-text-bg: 180, 5%, 96%, 1;
+
     --accent: 252 95% 58%;
     --accent-foreground: 60 20% 97%;
 
@@ -55,6 +58,9 @@
     --card: 217 10% 16%;
     --card-foreground: 60 20% 97%;
     --card-shadow: 180, 3%, 15%;
+
+    --mobile-mockup-bg: 214, 5%, 26%, 1;
+    --speech-text-bg: 214, 5%, 26%, 1;
 
     --popover: 217 10% 16%;
     --popover-foreground: 60 20% 97%;

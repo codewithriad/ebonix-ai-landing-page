@@ -1,23 +1,29 @@
 import {
+  IconCloudDownload,
   IconCopy,
   IconDeviceFloppy,
   IconFileDownload,
   IconHeadphones,
   IconMicrophone,
+  IconPlayerPauseFilled,
+  IconPlayerPlay,
   IconTrash,
+  IconVolume,
   IconWand,
 } from "@tabler/icons-react";
 import React from "react";
+import Avatar from "./Avater";
 import VoiceWaveformIcon from "./VoiceWaveForIcon";
+import Waveform from "./WaveForm";
 
 const SpeechTextApp: React.FC = () => {
   return (
-    <div className="max-h-fit bg-background max-w-7xl mx-auto p-8 flex flex-col md:flex-row gap-8">
+    <div className="max-h-fit bg-background max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 px-4 lg:px-8">
       {/* Speech to Text Section */}
-      <div className="flex-1 bg-background p-6 border-[8px] border-grayBackground rounded-2xl shadow-lg">
+      <div className="flex-1 bg-background p-6 md:p-12 border-[8px] border-grayBackground rounded-2xl shadow-lg">
         {/* title box */}
         <div className="mb-8">
-          <span className="px-3 py-2 border border-white rounded-xl text-sm font-semibold">
+          <span className="inline-block px-3 py-2 border border-foreground border-t-2 border-l-2 border-r-4 border-b-4 rounded-xl text-sm font-semibold">
             Speech to Text
           </span>
         </div>
@@ -39,116 +45,151 @@ const SpeechTextApp: React.FC = () => {
         </button>
 
         {/* Audio Upload Section */}
-        <div className="bg-gray-700 p-4 rounded-xl flex justify-center items-center gap-4 mt-4 mb-16 transform rotate-[-5deg] border border-para relative">
-          {/* headphone div */}
-          <div className="p-1 bg-grayBackground rounded-full h-10 w-10 flex justify-center items-center max-w-fit">
-            <IconHeadphones className="text-para" />
+        <div className="bg-speechTextBg p-4 rounded-xl flex justify-center items-center gap-4 mt-4 mb-16 transform rotate-[-5deg] border-t-2 border-r-2 border-l-4 border-b-4 border-para relative">
+          {/* headphone */}
+          <div className="p-1 bg-grayBackground rounded-full h-10 w-10 flex justify-center items-center">
+            <IconHeadphones className="w-6 h-6 text-para" />
           </div>
-          {/* text div */}
+          {/* text */}
           <div>
-            <h4 className="text-base text-foreground font-bold mb-2">
+            <h4 className="text-base text-foreground font-bold mb-1">
               Speech to Text
             </h4>
             <p className="text-sm text-para">
               Unlocking the Power of Voice: Transforming Spoken Words into Text
             </p>
           </div>
-
           {/* microphone */}
           <div className="absolute -bottom-6 right-12 w-12 h-12 p-2 rounded-xl bg-[#F8F7FA] border-t-2 border-l-2 border-b-4 border-r-4 border-[#B9B0CF]">
-            <IconMicrophone className="text-[#B9B0CF]" />
+            <IconMicrophone className="text-[#B9B0CF] w-full h-full" />
           </div>
         </div>
 
         <div className="flex flex-col-reverse lg:flex-row items-start gap-4 mb-4">
-          {/* upload div */}
-          <div className="bg-[#b9b0cf63] p-4 rounded-xl text-center relative">
-            <button className="text-foreground my-8">
-              +<br />
-              Upload audio file
-            </button>
-            <div className="absolute right-0 -top-6 w-12 h-12 border-t-2 border-l-2 border-b-4 border-r-4 flex justify-center items-center rounded-xl border-green-400 bg-[#F0FDFA] transform -rotate-[10deg]">
-              <IconWand className="text-green-400" />
+          {/* Upload and Generate */}
+          <div>
+            <div className="bg-[#b9b0cf63] p-4 rounded-xl text-center relative">
+              <button className="text-foreground my-8 text-sm">
+                +<br />
+                Upload audio file
+              </button>
+              <div className="absolute right-0 -top-6 w-12 h-12 flex justify-center items-center border-t-2 border-l-2 border-b-4 border-r-4 rounded-xl border-green-400 bg-[#F0FDFA] transform -rotate-[10deg]">
+                <IconWand className="text-green-400 w-6 h-6" />
+              </div>
             </div>
+            <button className="bg-grayBackground text-fore mt-6 px-5 py-2 rounded-md font-medium text-sm">
+              Generate result
+            </button>
           </div>
-          <div className="flex-1 bg-gray-700 p-4 rounded-xl">
-            <div className="flex flex-wrap gap-2 mb-4">
+
+          <div className="relative flex-1 bg-background shadow-xl p-4 rounded-xl overflow-hidden">
+            {/* shadow */}
+            <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-background to-transparent pointer-events-none z-30" />
+            {/* icons */}
+            <div className="flex flex-wrap gap-2 mb-4 relative z-20">
               {[IconCopy, IconFileDownload, IconDeviceFloppy, IconTrash].map(
                 (Icon, i) => (
                   <Icon
                     key={i}
-                    className={`${
+                    className={`w-5 h-5 sm:w-6 sm:h-6 ${
                       i === 3 ? "text-[#FFB2B5]" : "text-para"
-                    } w-4 h-4 sm:w-5 sm:h-5`}
+                    }`}
                   />
                 )
               )}
             </div>
-            <div className="text-foreground font-bold text-base mb-2">
+            <div className="text-foreground font-bold text-base mb-2 relative z-20">
               Welcome message
             </div>
-            <p className="text-gray-300 text-sm">
+            <p className="text-gray-300 text-base relative z-20">
               Welcome to a world of limitless possibilities and boundless
               knowledge! Whether you're seeking information, assistance, or
-              inspiration...
+              inspiration, we're here to help.
             </p>
           </div>
         </div>
 
-        {/* Waveform Placeholder */}
-        <div className="bg-gray-800 rounded-xl p-4 md:max-w-fit ml-auto flex justify-center">
+        {/* waveform */}
+        <div className="bg-background rounded-xl p-4 max-w-fit ml-auto mt-auto flex justify-center shadow-xl">
           <VoiceWaveformIcon />
         </div>
-
-        <button className="bg-grayBackground text-fore mt-4 px-5 py-2 rounded-md font-medium">
-          Generate result
-        </button>
       </div>
 
       {/* Text to Voice Section */}
-      <div className="flex-1 bg-background p-6 border-[8px] border-grayBackground rounded-2xl shadow-lg">
-        <div className="mb-4">
-          <span className="px-3 py-1 border border-white rounded-full text-sm font-semibold">
+      <div className="flex-1 bg-background p-6 md:p-12 border-[8px] border-grayBackground rounded-2xl shadow-lg">
+        <div className="mb-8">
+          <span className="inline-block px-3 py-2 border border-foreground border-t-2 border-l-2 border-r-4 border-b-4 rounded-xl text-sm font-semibold">
             Text to Voice
           </span>
         </div>
-        <h2 className="text-2xl font-bold mb-2">
-          Convert your texts into Lifelike Speech
+
+        <h2 className="text-foreground text-2xl font-bold mb-2 leading-10">
+          Transforming Spoken <br /> Words into Text
         </h2>
-        <p className="text-gray-300 mb-4">
-          Elevate Your Content with Expressive Narration: Discover Text-to-Voice
-          Excellence.
+
+        <p className="text-para mb-8">
+          Instantly Transcribe Spoken Words into Text for Enhanced Productivity
+          and Accessibility.
         </p>
-        <p className="text-gray-500 italic mb-6">Coming soon...</p>
 
-        {/* Text box and avatars */}
-        <div className="flex items-start gap-4 mb-4">
-          <div className="flex-1 bg-gray-700 p-4 rounded-xl">
-            <div className="text-gray-400">Your message</div>
-            <div className="text-white mt-2">[Text input goes here]</div>
-          </div>
-          <div className="text-2xl">▶️</div>
-        </div>
-
-        <button className="bg-white text-black px-5 py-2 rounded-md font-medium mb-6">
-          Generate result
+        <button className="bg-background text-para text-xs mb-6" disabled>
+          Coming Soon...
         </button>
 
-        <div className="flex flex-wrap gap-2 mb-4">
-          {[...Array(16)].map((_, idx) => (
-            <div
-              key={idx}
-              className="w-12 h-12 rounded-full bg-pink-400 flex items-center justify-center text-sm font-bold text-white"
-            >
-              👤
+        <div className="flex flex-col md:flex-row justify-between gap-8 mt-24">
+          {/* Mobile mockup */}
+          <div className="w-full max-w-[220px] h-[500px] sm:h-[520px] bg-mockupBg rounded-xl p-6 relative mx-auto">
+            <div>
+              <p className="text-para text-base font-bold mb-4">Your Message</p>
+              <div className="space-y-2">
+                <div className="h-2 w-36 bg-white/5 rounded-xl" />
+                <div className="h-2 w-28 bg-white/5 rounded-xl" />
+                <div className="h-2 w-32 bg-white/5 rounded-xl" />
+                <div className="h-2 w-20 bg-white/5 rounded-xl" />
+              </div>
             </div>
-          ))}
-        </div>
+            <button className="absolute bottom-6 left-4 right-4 bg-grayBackground text-para px-5 py-2 rounded-md font-medium">
+              Generate result
+            </button>
+          </div>
 
-        {/* Audio player placeholder */}
-        <div className="bg-gray-700 h-12 w-full rounded-xl flex items-center px-4 justify-between">
-          <div className="h-2 w-2/3 bg-green-400 rounded"></div>
-          <div>☁️</div>
+          {/* Voice Feature Area */}
+          <div className="relative w-full mx-auto">
+            <div className="transform rotate-[-5deg]">
+              <div className="text-para p-4 border-t-2 border-l-4 border-b-4 border-r-2 border-para rounded-xl md:mt-0 md:w-[330px] mb-60 mt-0">
+                <div className="w-12 h-12 bg-grayBackground rounded-full p-1 flex justify-center items-center">
+                  <IconVolume className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-bold my-2">Our Text to Voice</h3>
+                <p>
+                  Turn Text into Real Voices of Culture: Ebonix AI Text-to-Voice
+                  Like Never Before.
+                </p>
+              </div>
+            </div>
+
+            <div className="absolute bottom-0 left-1 flex p-2 justify-start items-center bg-[#3F4246] h-10 w-80 rounded-full">
+              <div className="w-8 h-8 rounded-full p-1 bg-grayBackground flex justify-center items-center">
+                <IconPlayerPauseFilled className="text-para w-5 h-5" />
+              </div>
+              <div className="relative">
+                <Waveform />
+
+                <div className="absolute right-10 -top-4 w-12 h-12 rounded-xl flex justify-center items-center bg-[#FFF9F4] border-t-2 border-l-4 border-b-4 border-r-2 border-[#FFC091] transform rotate-[-30deg]">
+                  <IconCloudDownload className="text-[#FFC091] w-6 h-6" />
+                </div>
+              </div>
+            </div>
+
+            <div className="absolute right-4 bottom-24 md:right-12 md:bottom-24">
+              <div className="relative">
+                <div className="absolute top-16 -left-32 border-t-2 border-r-2 border-b-4 border-l-4 border-[#6184EB] bg-[#EFF3FD] w-12 h-12 rounded-xl flex justify-center items-center transform rotate-[-30deg]">
+                  <IconPlayerPlay className="text-[#6184EB] w-6 h-6" />
+                </div>
+                <Avatar />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

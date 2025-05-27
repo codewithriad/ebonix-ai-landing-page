@@ -50,6 +50,8 @@ export default {
         grayBackground: "hsl(var(--gray-background))",
         cardShadow: "hsl(var(--card-shadow))",
         searchText: "hsl(var(--search-text))",
+        mockupBg: "hsl(var(--mobile-mockup-bg))",
+        speechTextBg: "hsl(var(--speech-text-bg))",
 
         gradientColor: "hsl(var(--border-gradient))",
 

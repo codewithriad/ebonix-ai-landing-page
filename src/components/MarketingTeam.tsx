@@ -1,6 +1,7 @@
 "use client";
 
 import AIBlogSection from "@/components/AIBlogSection";
+import AiChatBot from "./AiChatBot";
 import SpeechTextApp from "./SpeechTextApp";
 import { useTheme } from "./ThemeProvider";
 import DarkPageLogo from "/dark-nav-logo.png";
@@ -25,10 +26,18 @@ const MarketingTeam = () => {
             </span>
           </h2>
         </div>
-        <div className="mt-12">
+        {/* ai blog section */}
+        <div className="mt-16">
           <AIBlogSection />
         </div>
-        <div className="mt-12">
+
+        {/* chat with ai section */}
+        <div className="mt-16">
+          <AiChatBot />
+        </div>
+
+        {/* ai speech to text section */}
+        <div className="mt-20">
           <SpeechTextApp />
         </div>
       </section>
