@@ -2,7 +2,10 @@
 
 import AIBlogSection from "@/components/AIBlogSection";
 import AiChatBot from "./AiChatBot";
+import AiCode from "./AiCode";
+import AIImageHero from "./AiImageHero";
 import SpeechTextApp from "./SpeechTextApp";
+import Template from "./Template";
 import { useTheme } from "./ThemeProvider";
 import DarkPageLogo from "/dark-nav-logo.png";
 import LightPageLogo from "/light-nav-logo.png";
@@ -29,6 +32,22 @@ const MarketingTeam = () => {
         {/* ai blog section */}
         <div className="mt-16">
           <AIBlogSection />
+        </div>
+
+        {/* ai templates */}
+
+        <div className="mt-16">
+          <Template />
+        </div>
+
+        {/* ai code */}
+        <div className="mt-16">
+          <AiCode />
+        </div>
+
+        {/* ai image hero */}
+        <div className="mt-16">
+          <AIImageHero />
         </div>
 
         {/* chat with ai section */}

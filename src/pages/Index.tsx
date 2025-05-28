@@ -1,4 +1,5 @@
 import CoolestFeatures from "@/components/CoolestFeatures";
+import Dashboard from "@/components/Dashboard/Dashboard";
 import WhatItWork from "@/components/Dashboard/WhatItWork";
 import Footer from "@/components/Footer";
 import GetStartedSection from "@/components/GetStartedSection";
@@ -15,7 +16,7 @@ const Index = React.memo(() => {
       <Navbar />
       <main className="mt-[7rem]">
         <HeroSection />
-        {/* <Dashboard /> */}
+        <Dashboard />
         <MarketingTeam />
         <WhatItWork />
         <CoolestFeatures />

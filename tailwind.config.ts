@@ -52,6 +52,7 @@ export default {
         searchText: "hsl(var(--search-text))",
         mockupBg: "hsl(var(--mobile-mockup-bg))",
         speechTextBg: "hsl(var(--speech-text-bg))",
+        webBg: "hsl(var(--web-speech-bg))",
 
         gradientColor: "hsl(var(--border-gradient))",
 

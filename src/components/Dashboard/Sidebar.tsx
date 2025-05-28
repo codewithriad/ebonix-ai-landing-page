@@ -1,8 +1,11 @@
 // components/Sidebar.tsx
-import { IconArrowBarLeft, IconArrowBarRight } from "@tabler/icons-react";
+import {
+  IconArrowBarLeft,
+  IconArrowBarRight,
+  IconDotsVertical,
+} from "@tabler/icons-react";
 import {
   Code,
-  EllipsisVertical,
   FileText,
   Image,
   MessageCircle,
@@ -129,7 +132,7 @@ const Sidebar: React.FC<SidebarProps> = ({
               </div>
             )}
           </div>
-          <EllipsisVertical className="text-para" />
+          <IconDotsVertical className="text-para" />
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import { IconArrowRight, IconMessageCircle } from "@tabler/icons-react";
-import img5 from "/avater10.jpg";
-import img4 from "/avater2.jpg";
+import img5 from "/avater10.webp";
+import img4 from "/avater2.webp";
 
 const AiChatBot: React.FC = () => {
   return (

@@ -5,11 +5,12 @@ import {
   IconCode,
   IconHeadphonesFilled,
   IconHome,
-  IconMessageChatbotFilled,
+  IconMessageChatbot,
+  IconMicrophone2,
   IconSettings,
   IconTopologyStar3,
 } from "@tabler/icons-react";
-import { Image, MicVocalIcon } from "lucide-react";
+import { Image } from "lucide-react";
 import { useState } from "react";
 import DashboardHeader from "./DashboardHeader";
 import SearchBox from "./SearchBox";
@@ -26,7 +27,7 @@ const Dashboard = () => {
 
   const tools = [
     {
-      icon: <IconMessageChatbotFilled />,
+      icon: <IconMessageChatbot />,
       title: "Chat",
       description: "Chat with Ai assistants",
       prompt: "Ai Bot",
@@ -61,7 +62,7 @@ const Dashboard = () => {
       className: "bg-emerald-500",
     },
     {
-      icon: <MicVocalIcon />,
+      icon: <IconMicrophone2 />,
       title: "Voiceover",
       description: "Convert your texts into lifelike speech",
       prompt: "tool-two-prompt",

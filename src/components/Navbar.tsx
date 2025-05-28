@@ -1,6 +1,6 @@
 import { useTheme } from "@/components/ThemeProvider";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
@@ -33,9 +33,9 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden lg:flex justify-center items-center space-x-12">
           <NavLinks />
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-6">
             <Button
               variant="ghost"
               size="icon"
@@ -49,6 +49,10 @@ const Navbar = () => {
               )}
               <span className="sr-only">Toggle theme</span>
             </Button>
+            <button>EN</button>
+            <Button className="bg-background text-foreground border border-para rounded-md font-medium px-6 hover:text-white text-base">
+              Login
+            </Button>
             <Button className="gradient-bg font-medium px-6">
               Get Started
             </Button>
@@ -56,7 +60,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile menu button */}
-        <div className="md:hidden flex items-center space-x-2">
+        <div className="lg:hidden flex items-center space-x-2">
           <Button
             variant="ghost"
             size="icon"
@@ -98,7 +102,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       <div
-        className={`md:hidden absolute w-full bg-background border-t border-ebonix-gray-medium transition-all duration-300 ${
+        className={`lg:hidden absolute w-full bg-background border-t border-ebonix-gray-medium transition-all duration-300 ${
           isMenuOpen
             ? "max-h-96 py-6 opacity-100"
             : "max-h-0 overflow-hidden opacity-0"
@@ -124,20 +128,18 @@ const NavLinks = () => {
 
   return (
     <>
-      <a href="#features" className={linkClass}>
-        Features
+      <a href="#" className={linkClass}>
+        Product
+      </a>
+      <a href="#" className={linkClass}>
+        Customers
       </a>
       <a href="#pricing" className={linkClass}>
         Pricing
       </a>
-      <a href="#about" className={linkClass}>
-        About
+      <a href="#" className={linkClass}>
+        Learn
       </a>
-      <div className="relative group">
-        <button className={`flex items-center ${linkClass}`}>
-          Resources <ChevronDown className="ml-1 w-4 h-4" />
-        </button>
-      </div>
     </>
   );
 };

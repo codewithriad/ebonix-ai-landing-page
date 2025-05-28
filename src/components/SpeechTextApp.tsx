@@ -168,7 +168,7 @@ const SpeechTextApp: React.FC = () => {
               </div>
             </div>
 
-            <div className="absolute bottom-0 left-1 flex p-2 justify-start items-center bg-[#3F4246] h-10 w-80 rounded-full">
+            <div className="absolute bottom-0 left-1 flex p-2 justify-start items-center bg-webBg h-10 w-80 rounded-full">
               <div className="w-8 h-8 rounded-full p-1 bg-grayBackground flex justify-center items-center">
                 <IconPlayerPauseFilled className="text-para w-5 h-5" />
               </div>
