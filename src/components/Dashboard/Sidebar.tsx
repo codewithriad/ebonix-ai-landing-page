@@ -51,17 +51,7 @@ const Sidebar: React.FC<SidebarProps> = ({
       name: "Voiceover",
       icon: <Volume2 className="w-3 h-3" />,
       color: "bg-lime-400",
-    },
-    // {
-    //   name: "Voice isolator",
-    //   icon: <Sound className="w-5 h-5" />,
-    //   color: "bg-indigo-400",
-    // },
-    {
-      name: "Classifier",
-      icon: <Sliders className="w-3 h-3" />,
-      color: "bg-pink-400",
-    },
+    }
   ];
 
   return (
@@ -104,7 +94,7 @@ const Sidebar: React.FC<SidebarProps> = ({
         <h2 className="text-xl font-semibold">Tools</h2>
         <ul className="space-y-6 mt-8">
           {tools.map((tool, idx) => (
-            <li key={idx} className="flex items-center gap-4">
+            <li key={idx} className="flex items-center gap-4 cursor-pointer">
               <div className={`p-2 rounded-full ${tool.color}`}>
                 {tool.icon}
               </div>
@@ -116,7 +106,7 @@ const Sidebar: React.FC<SidebarProps> = ({
 
       {/* Footer */}
       <div className="absolute bottom-4">
-        <div className="flex justify-between items-center gap-4">
+        <div className="flex justify-between items-center gap-4 cursor-pointer">
           <div className="flex items-start gap-3">
             <img
               src="/user.png"

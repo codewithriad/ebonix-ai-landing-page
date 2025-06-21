@@ -1,5 +1,8 @@
 import { BsArrowRight } from "react-icons/bs";
+import { useState } from "react";
+import ComingSoonModal from "./Shared/ComingSoonModal";
 const HeroSection = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <section className="mt-16">
       {/* hero typography */}
@@ -12,15 +15,21 @@ const HeroSection = () => {
           needs. Unlock limitless possibilities, save your time and start making
           money today!
         </p>
-        <button
-          type="button"
-          className="text-background flex justify-center items-center gap-6 bg-foreground px-4 py-[10px] rounded-lg mt-10"
-        >
-          <span className="text-base leading-6 text-center font-medium">
-            Get Started Now
-          </span>
-          <BsArrowRight className="w-6 h-auto" />
-        </button>
+        <>
+          <button
+            type="button"
+            onClick={() => setIsOpen(true)}
+            className="text-background flex justify-center items-center gap-6 bg-foreground px-4 py-[10px] rounded-lg mt-10"
+          >
+            <span className="text-base leading-6 text-center font-medium">
+              Get Started Free
+            </span>
+            <BsArrowRight className="w-6 h-auto" />
+          </button>
+
+          {/* Modal goes outside the button */}
+          <ComingSoonModal isOpen={isOpen} onClose={() => setIsOpen(!isOpen)} />
+        </>
       </div>
     </section>
   );

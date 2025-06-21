@@ -106,7 +106,7 @@ const AiCode = () => {
                   <span className="text-green-500">{`"width=device-width, initial-"`}</span>
                 </li>
                 <li>
-                  <span className="text-green500">scale=1.0"</span>
+                  <span className="text-green-500">scale=1.0"</span>
                 </li>
                 <li className="text-gray-400 ml-4">
                   {"<title>Your Landing Page</title>"}

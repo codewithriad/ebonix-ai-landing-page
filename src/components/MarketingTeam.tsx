@@ -9,6 +9,7 @@ import Template from "./Template";
 import { useTheme } from "./ThemeProvider";
 import DarkPageLogo from "/dark-nav-logo.png";
 import LightPageLogo from "/light-nav-logo.png";
+import TextToVoice from "@/pages/HomePage/TextToVoice";
 
 const MarketingTeam = () => {
   const { theme } = useTheme();

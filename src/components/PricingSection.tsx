@@ -49,7 +49,7 @@ export default function PricingSection() {
   ];
 
   return (
-    <section className="py-20 px-6 bg-background text-foreground">
+    <section className="py-20 px-6 bg-background text-foreground" id="pricing">
       <div className="max-w-6xl mx-auto text-center mb-12">
         <h2 className="text-4xl font-bold">Pricing</h2>
         <p className="mt-2 text-muted-foreground md:max-w-[45%] mx-auto">

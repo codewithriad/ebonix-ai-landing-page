@@ -2,6 +2,7 @@ import { useTheme } from "@/components/ThemeProvider";
 import { Button } from "@/components/ui/button";
 import { Moon, Sun } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -50,12 +51,17 @@ const Navbar = () => {
               <span className="sr-only">Toggle theme</span>
             </Button>
             <button>EN</button>
-            <Button className="bg-background text-foreground border border-para rounded-md font-medium px-6 hover:text-white text-base">
-              Login
-            </Button>
-            <Button className="gradient-bg font-medium px-6">
-              Get Started
-            </Button>
+            <Link to="/login">
+              <Button className="bg-background text-foreground border border-para rounded-md font-medium px-6 hover:text-white text-base">
+                Login
+              </Button>
+            </Link>
+
+            <Link to="/signup">
+              <Button className="gradient-bg font-medium px-6">
+                Get Started
+              </Button>
+            </Link>
           </div>
         </div>
 
@@ -111,8 +117,15 @@ const Navbar = () => {
         <div className="container-custom flex flex-col space-y-6">
           <div className="flex flex-col space-y-3">
             <NavLinks />
+            <Link to="/login">
+              <Button className="bg-background text-foreground border border-para rounded-md font-medium px-6 hover:text-white text-base">
+                Login
+              </Button>
+            </Link>
           </div>
-          <Button className="gradient-bg font-medium">Get Started</Button>
+          <Link to="/signup">
+            <Button className="gradient-bg font-medium">Get Started</Button>
+          </Link>
         </div>
       </div>
     </nav>

@@ -12,6 +12,7 @@
     --search-text: 200, 2%, 68%, 1;
 
     --gray-background: 180, 5%, 96%;
+    --prompt-category-bg: var(--gray-background);
 
     --card: 60 20% 97%;
     --card-foreground: 217 10% 16%;
@@ -55,6 +56,9 @@
     --dark-para: 200, 2%, 68%;
 
     --gray-background: 204, 10%, 10%, 1;
+
+    
+    --prompt-category-bg: 218, 11%, 65%, 0.15;
 
     --card: 217 10% 16%;
     --card-foreground: 60 20% 97%;

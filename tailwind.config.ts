@@ -23,6 +23,7 @@ export default {
         "2xl": "1400px",
       },
     },
+
     extend: {
       fontFamily: {
         sans: [
@@ -55,6 +56,7 @@ export default {
         webBg: "hsl(var(--web-speech-bg))",
 
         gradientColor: "hsl(var(--border-gradient))",
+        promptCategoryBg: "hsl(var(--prompt-category-bg))",
 
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -157,12 +159,17 @@ export default {
             opacity: "1",
           },
         },
+        'bounce-y': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' }, // adjust height here
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-in": "fade-in 0.5s ease-out",
         "scale-in": "scale-in 0.3s ease-out",
+        'bounce-y': 'bounce-y 2s infinite ease-in-out',
       },
     },
   },

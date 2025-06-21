@@ -4,7 +4,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
+const Login = lazy(() => import("./pages/Login/Login"));
+const SignUp = lazy(() => import("./pages/SignUp/SignUp"));
 const Index = lazy(() => import("./pages/Index"));
+
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -23,6 +26,8 @@ const App = React.memo(() => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="*" element={<NotFound />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signUp" element={<SignUp />} />
           </Routes>
         </Suspense>
       </BrowserRouter>
