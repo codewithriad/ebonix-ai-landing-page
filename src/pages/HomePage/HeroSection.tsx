@@ -1,10 +1,10 @@
 import { BsArrowRight } from "react-icons/bs";
 import { useState } from "react";
-import ComingSoonModal from "./Shared/ComingSoonModal";
+import ComingSoonModal from "@/components/Shared/ComingSoonModal";
 const HeroSection = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <section className="mt-16">
+    <section className="bg-background">
       {/* hero typography */}
       <div className="w-full mx-auto flex justify-center items-center flex-col max-w-[960px]">
         <h1 className="text-foreground text-[56px] font-[900] lg:leading-[5rem] text-center">

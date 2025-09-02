@@ -1,6 +1,6 @@
 import Icon from "@/components/Shared/Icon";
 import TakeMeHomeButton from "@/components/Shared/TakeMeHome";
-import { useTheme } from "@/components/ThemeProvider";
+import { useTheme } from "@/pages/HomePage/ThemeProvider";
 import { Button } from "@/components/ui/button";
 import {
   IconBrandFacebook,
@@ -166,7 +166,7 @@ const SignUp = () => {
               IconBrandGithub,
             ].map((IconItem, i) => (
               <Link
-                to="/"
+                to=""
                 key={i}
                 className="p-3 rounded-xl border border-para hover:bg-foreground/10 transition"
               >

@@ -13,8 +13,8 @@ import {
 } from "@tabler/icons-react";
 import React from "react";
 import Avatar from "./Avater";
-import VoiceWaveformIcon from "./VoiceWaveForIcon";
-import Waveform from "./WaveForm";
+import VoiceWaveformIcon from "../../components/VoiceWaveForIcon";
+import Waveform from "../../components/WaveForm";
 
 const SpeechTextApp: React.FC = () => {
   return (

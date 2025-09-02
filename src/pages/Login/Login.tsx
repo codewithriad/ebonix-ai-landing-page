@@ -1,6 +1,6 @@
 import Icon from "@/components/Shared/Icon";
 import TakeMeHomeButton from "@/components/Shared/TakeMeHome";
-import { useTheme } from "@/components/ThemeProvider";
+import { useTheme } from "@/pages/HomePage/ThemeProvider";
 import { Button } from "@/components/ui/button";
 import {
   IconBrandGoogle,
@@ -143,7 +143,7 @@ const Login = () => {
               IconBrandGithub,
             ].map((IconItem, index) => (
               <Link
-                to="/"
+                to=""
                 key={index}
                 className="p-3 rounded-xl border border-para hover:bg-foreground/10 transition"
               >

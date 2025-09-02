@@ -46,6 +46,8 @@
     --ring: 252 95% 58%;
 
     --radius: 0.5rem;
+
+    --chart-foreground: rgb(17, 24, 39);
   }
 
   .dark {
@@ -57,7 +59,6 @@
 
     --gray-background: 204, 10%, 10%, 1;
 
-    
     --prompt-category-bg: 218, 11%, 65%, 0.15;
 
     --card: 217 10% 16%;
@@ -89,6 +90,8 @@
     --border: 217 10% 25%;
     --input: 217 10% 25%;
     --ring: 252 95% 58%;
+
+    --chart-foreground: rgb(255, 255, 255);
   }
 }
 

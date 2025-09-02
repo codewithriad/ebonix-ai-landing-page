@@ -1,6 +1,6 @@
 "use client";
 
-import AIBlogSection from "@/components/AIBlogSection";
+import AIBlogSection from "@/pages/HomePage/AIBlogSection";
 import AiChatBot from "./AiChatBot";
 import AiCode from "./AiCode";
 import AIImageHero from "./AiImageHero";
