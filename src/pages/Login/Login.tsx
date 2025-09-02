@@ -3,7 +3,6 @@ import TakeMeHomeButton from "@/components/Shared/TakeMeHome";
 import { useTheme } from "@/pages/HomePage/ThemeProvider";
 import { Button } from "@/components/ui/button";
 import {
-  IconBrandGoogle,
   IconBrandLinkedin,
   IconBrandFacebook,
   IconBrandGithub,
@@ -12,6 +11,7 @@ import {
 } from "@tabler/icons-react";
 import { Moon, Sun } from "lucide-react";
 import { Link } from "react-router-dom";
+import { GoogleLogin } from "@react-oauth/google";
 
 const Login = () => {
   const { theme, toggleTheme } = useTheme();
@@ -19,16 +19,13 @@ const Login = () => {
   return (
     <section className="min-h-screen bg-background flex items-center justify-center px-4 py-10">
       <div className="w-full max-w-md bg-grayBackground rounded-xl shadow-xl p-6 sm:p-8 relative">
-        {/* Logo */}
-        <div className="flex justify-center">
+        {/* Logo + Theme Toggle */}
+        <div className="flex justify-between items-center">
           <img
-            src={
-              theme === "light" ? "/light-nav-logo.png" : "/dark-nav-logo.png"
-            }
+            src={theme === "light" ? "/light-nav-logo.png" : "/dark-nav-logo.png"}
             alt="Ebonix"
             className="h-10"
           />
-          {/* toggle theme icon */}
           <Button
             variant="ghost"
             size="icon"
@@ -44,27 +41,24 @@ const Login = () => {
           </Button>
         </div>
 
-        {/* Design - Top Icon */}
+        {/* Decorative Icon */}
         <Icon
           className="-left-7 top-0 border-green-500"
           icon={<IconListDetails className="text-green-500" />}
         />
 
-        {/* Structure - Heading */}
-        <h1 className="text-xl font-bold text-center text-foreground">
+        {/* Heading */}
+        <h1 className="text-xl font-bold text-center text-foreground mt-4">
           Welcome Back
         </h1>
         <p className="text-sm text-center text-para mb-6">
           Sign in to your account
         </p>
 
-        {/* Action - Login Form */}
+        {/* Login Form */}
         <form className="space-y-5">
           <div>
-            <label
-              htmlFor="email"
-              className="block text-sm text-foreground mb-1"
-            >
+            <label htmlFor="email" className="block text-sm text-foreground mb-1">
               Email
             </label>
             <input
@@ -119,7 +113,6 @@ const Login = () => {
               </Link>
             </p>
 
-            {/* Send Icon */}
             <Icon
               className="-top-6 right-4 border-purple-500"
               icon={<IconSend className="text-purple-500" />}
@@ -127,7 +120,7 @@ const Login = () => {
           </div>
         </form>
 
-        {/* Divider + Social Icons */}
+        {/* Divider + Social Login */}
         <div className="my-8">
           <div className="flex items-center gap-2 justify-center text-xs text-para mb-6">
             <hr className="w-24 sm:w-32 h-[1px] bg-para" />
@@ -136,20 +129,25 @@ const Login = () => {
           </div>
 
           <div className="flex justify-center gap-4 flex-wrap">
-            {[
-              IconBrandGoogle,
-              IconBrandFacebook,
-              IconBrandLinkedin,
-              IconBrandGithub,
-            ].map((IconItem, index) => (
-              <Link
-                to=""
-                key={index}
-                className="p-3 rounded-xl border border-para hover:bg-foreground/10 transition"
-              >
-                <IconItem className="h-6 w-6 text-para" />
-              </Link>
-            ))}
+            {/* Google Login */}
+            <GoogleLogin
+              onSuccess={(response) => console.log("Google login success:", response)}
+              onError={() => console.log("Google login failed",)}
+              width={220}
+            />
+
+            {/* Other Social Icons */}
+            {[IconBrandFacebook, IconBrandLinkedin, IconBrandGithub].map(
+              (IconItem, index) => (
+                <Link
+                  to="#"
+                  key={index}
+                  className="p-3 rounded-xl border border-para hover:bg-foreground/10 transition"
+                >
+                  <IconItem className="h-6 w-6 text-para" />
+                </Link>
+              )
+            )}
           </div>
         </div>
 
