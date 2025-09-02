@@ -130,7 +130,7 @@ const EbonixPrompt = () => {
                 <div className="flex flex-col flex-1 bg-chat-background">
                     <ChatHeader />
 
-                    <div className="flex-1 overflow-hidden">
+                    <div className="flex-1 overflow-hidden bg-background text-foreground">
                         {messages.length === 0 ? (
                             // Welcome screen
                             <div className="flex flex-col items-center justify-center h-full px-4 py-8">

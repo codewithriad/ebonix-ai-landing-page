@@ -44,13 +44,13 @@ const Navbar = () => {
               className="rounded-full"
             >
               {theme === "dark" ? (
-                <Sun className="h-5 w-5" />
+                <Sun className="h-5 w-5 text-foreground" />
               ) : (
                 <Moon className="h-5 w-5" />
               )}
               <span className="sr-only">Toggle theme</span>
             </Button>
-            <button>EN</button>
+            <button className="text-foreground">EN</button>
             <Link to="/login">
               <Button className="bg-background text-foreground border border-para rounded-md font-medium px-6 hover:text-white text-base">
                 Login

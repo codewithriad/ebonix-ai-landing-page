@@ -38,7 +38,7 @@ export function ChatInput({ onSendMessage, disabled }: ChatInputProps) {
                 onKeyDown={handleKeyDown}
                 placeholder="Message EbonixAI..."
                 className={cn(
-                  "min-h-[48px] max-h-32 resize-none rounded-xl border-input bg-background px-4 py-3 pr-12",
+                  "min-h-[48px] max-h-32 resize-none rounded-xl border-input bg-background px-4 py-3 pr-12 text-foreground",
                   "focus:ring-2 focus:ring-primary focus:border-transparent",
                   "placeholder:text-muted-foreground"
                 )}
@@ -49,9 +49,9 @@ export function ChatInput({ onSendMessage, disabled }: ChatInputProps) {
                   type="button"
                   variant="ghost"
                   size="sm"
-                  className="h-8 w-8 p-0"
+                  className="h-8 w-8 p-0 text-foreground"
                 >
-                  <Paperclip className="h-4 w-4" />
+                  <Paperclip className="h-4 w-4 text-foreground" />
                 </Button>
                 <Button
                   type="button"
@@ -59,7 +59,7 @@ export function ChatInput({ onSendMessage, disabled }: ChatInputProps) {
                   size="sm"
                   className="h-8 w-8 p-0"
                 >
-                  <Mic className="h-4 w-4" />
+                  <Mic className="h-4 w-4 text-foreground" />
                 </Button>
               </div>
             </div>

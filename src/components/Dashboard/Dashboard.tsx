@@ -47,12 +47,12 @@ const Dashboard = () => {
       </div>
 
       {/* bottom of tools card */}
-      <div className="absolute bottom-12 right-0 rotate-[30deg] w-12 h-12 bg-[#e8f9ee] border-t border-l border-r-4 border-b-4 border-[#00A6FB] rounded-xl flex justify-center items-center z-50">
+      <div className="absolute bottom-12 right-0 rotate-[30deg] w-12 h-12 bg-[#e8f9ee] border-t border-l border-r-4 border-b-4 border-[#00A6FB] rounded-xl flex justify-center items-center z-20">
         <IconCarouselHorizontal stroke={2} className="text-[#00A6FB] w-8 h-8" />
       </div>
 
       {/* to-left corner icon */}
-      <div className="absolute top-0 md:-top-8 left-0 md:-left-8 rotate-12 w-12 h-12 bg-[#e8f9ee] border-t border-l border-r-4 border-b-4 border-green-400 rounded-xl flex justify-center items-center z-50">
+      <div className="absolute top-0 md:-top-8 left-0 md:-left-8 rotate-12 w-12 h-12 bg-[#e8f9ee] border-t border-l border-r-4 border-b-4 border-green-400 rounded-xl flex justify-center items-center z-20">
         <IconTopologyStar3 stroke={2} className="text-green-400 w-8 h-8" />
       </div>
     </div>

@@ -7,6 +7,7 @@ import {
   PaperClipIcon,
 } from "@heroicons/react/24/outline";
 import ComingSoonModal from "./ComingSoonModal";
+import { Link } from "react-router-dom";
 
 const PromptCard: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,11 +49,10 @@ const PromptCard: React.FC = () => {
             <button
               key={item}
               onClick={() => setSelectedFilter(item)}
-              className={`px-3 py-1 rounded-full text-sm font-medium transition ${
-                selectedFilter === item
+              className={`px-3 py-1 rounded-full text-sm font-medium transition ${selectedFilter === item
                   ? "bg-green-600 text-white"
                   : "bg-grayBackground text-para hover:bg-gray-200"
-              }`}
+                }`}
             >
               {item}
             </button>
@@ -84,12 +84,10 @@ const PromptCard: React.FC = () => {
             aria-label="Send question"
             onClick={() => setIsOpen(!isOpen)}
           >
-            <PaperAirplaneIcon className="w-5 h-5 text-white rotate-45" />
-            {/* Modal goes outside the button */}
-            <ComingSoonModal
-              isOpen={isOpen}
-              onClose={() => setIsOpen(!isOpen)}
-            />
+            <Link to={"/ai-prompt"}>
+              <PaperAirplaneIcon className="w-5 h-5 text-white rotate-45" />
+            </Link>
+
           </button>
         </div>
       </div>
