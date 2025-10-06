@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
 import KpiCard from "../Dashboard/shared/KpiCard";
@@ -11,7 +11,6 @@ import CustomarSatisfactions from "./CustomerSatisfactions";
 import CustomerSatisfactions from "./CustomerSatisfactions";
 
 const Dashboard = () => {
-  const [collapsed, setCollapsed] = useState(false);
 
   return (
     <section className="flex h-screen w-full">

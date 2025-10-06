@@ -1,13 +1,14 @@
 // import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React, { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Dashboard from "./pages/Dashboard/Dashboard";
-import AllUsersPage from "./pages/Dashboard/AllUsers";
-import AllOrders from "./pages/Dashboard/shared/AllOrders";
+import AllUsersPage from "./pages/Admin/Dashboard/AllUsers";
+import Dashboard from "./pages/Admin/Dashboard/Dashboard";
+import AllOrders from "./pages/Admin/Dashboard/shared/AllOrders";
+import EbonixApp from "./pages/app";
 import EbonixPrompt from "./pages/ebonix-prompt/EbonixPrompt";
 
 const Login = lazy(() => import("./pages/Login/Login"));
@@ -40,6 +41,7 @@ const App = React.memo(() => (
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/all-users" element={<AllUsersPage />} />
               <Route path="dashboard/all-orders" element={<AllOrders />} />
+              <Route path="/app" element={<EbonixApp />} />
               <Route path="*" element={<NotFound />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signUp" element={<SignUp />} />

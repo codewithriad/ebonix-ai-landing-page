@@ -1,8 +1,8 @@
+import { cn } from "@/lib/utils";
+import { Mic, Paperclip, Send } from "lucide-react";
 import { useState } from "react";
-import { Send, Paperclip, Mic } from "lucide-react";
 import { Button } from "../../components/ui/button";
 import { Textarea } from "../../components/ui/textarea";
-import { cn } from "@/lib/utils";
 
 interface ChatInputProps {
   onSendMessage: (message: string) => void;
@@ -36,9 +36,9 @@ export function ChatInput({ onSendMessage, disabled }: ChatInputProps) {
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Message EbonixAI..."
+                placeholder="Ask me anything"
                 className={cn(
-                  "min-h-[48px] max-h-32 resize-none rounded-xl border-input bg-background px-4 py-3 pr-12 text-foreground",
+                  "min-h-[44px] max-h-32 resize-none rounded-xl border-input bg-background px-4 py-3 pr-12 text-foreground",
                   "focus:ring-2 focus:ring-primary focus:border-transparent",
                   "placeholder:text-muted-foreground"
                 )}

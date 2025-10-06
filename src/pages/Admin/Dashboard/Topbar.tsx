@@ -74,9 +74,9 @@ const Topbar = () => {
 
         <div className="relative">
           <button className="text-gray-600 hover:text-black transition">
-            <Bell size={18} />
+            <img src="dashboard/Bell.svg" alt="notification" className="w-6 h-6" />
           </button>
-          <span className="absolute -top-1 -right-1 bg-green-500 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
+          <span className="absolute -top-1 -right-1 bg-yellow-500 text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">
             4
           </span>
         </div>

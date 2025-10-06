@@ -1,23 +1,30 @@
-import { useState } from "react";
-import { MessageSquare, Plus, Settings, History, Trash2 } from "lucide-react";
-import { NavLink, useLocation } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
   SidebarGroupLabel,
+  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  SidebarHeader,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { Button } from "@/components/ui/button";
+import {
+  Book,
+  FolderPlus,
+  History,
+  MessageSquare,
+  Plus,
+  Search,
+  Trash2,
+} from "lucide-react";
+import { useEffect, useState } from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
-import ebonixLogoLight from "/light-nav-logo.png";
 import ebonixLogoDark from "/dark-nav-logo.png";
-import { useEffect } from "react";
+import ebonixLogoLight from "/light-nav-logo.png";
 
 interface ChatHistory {
   id: string;
@@ -38,7 +45,7 @@ export function AppSidebar({
   chatHistory,
   onSelectChat,
   onDeleteChat,
-  currentChatId
+  currentChatId,
 }: AppSidebarProps) {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
@@ -47,12 +54,17 @@ export function AppSidebar({
 
   useEffect(() => {
     const updateTheme = () => {
-      setTheme(document.documentElement.classList.contains("dark") ? "dark" : "light");
+      setTheme(
+        document.documentElement.classList.contains("dark") ? "dark" : "light"
+      );
     };
 
     updateTheme();
     const observer = new MutationObserver(updateTheme);
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
 
     return () => observer.disconnect();
   }, []);
@@ -62,10 +74,7 @@ export function AppSidebar({
   };
 
   return (
-    <Sidebar
-      className={collapsed ? "w-14" : "w-64"}
-      collapsible="icon"
-    >
+    <Sidebar className={collapsed ? "w-14" : "w-64"} collapsible="icon">
       <SidebarHeader className="p-4 border-b">
         {!collapsed && (
           <div className="flex items-center justify-between">
@@ -96,6 +105,63 @@ export function AppSidebar({
                   </Button>
                 </SidebarMenuButton>
               </SidebarMenuItem>
+
+              {/* 🔍 Search Chats */}
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <NavLink
+                    to="/search"
+                    className={({ isActive }) =>
+                      `flex items-center gap-2 p-2 rounded-md transition-colors ${
+                        isActive
+                          ? "bg-accent text-accent-foreground"
+                          : "hover:bg-accent/50"
+                      }`
+                    }
+                  >
+                    <Search className="h-4 w-4" />
+                    {!collapsed && <span>Search chats</span>}
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+
+              {/* 📚 Library */}
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <NavLink
+                    to="/library"
+                    className={({ isActive }) =>
+                      `flex items-center gap-2 p-2 rounded-md transition-colors ${
+                        isActive
+                          ? "bg-accent text-accent-foreground"
+                          : "hover:bg-accent/50"
+                      }`
+                    }
+                  >
+                    <Book className="h-4 w-4" />
+                    {!collapsed && <span>Library</span>}
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+
+              {/* 📂 Projects */}
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <NavLink
+                    to="/projects"
+                    className={({ isActive }) =>
+                      `flex items-center gap-2 p-2 rounded-md transition-colors ${
+                        isActive
+                          ? "bg-accent text-accent-foreground"
+                          : "hover:bg-accent/50"
+                      }`
+                    }
+                  >
+                    <FolderPlus className="h-4 w-4" />
+                    {!collapsed && <span>Projects</span>}
+                  </NavLink>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
@@ -113,7 +179,11 @@ export function AppSidebar({
                   <SidebarMenuItem key={chat.id}>
                     <SidebarMenuButton
                       asChild
-                      className={`group ${currentChatId === chat.id ? 'bg-accent text-accent-foreground' : ''}`}
+                      className={`group ${
+                        currentChatId === chat.id
+                          ? "bg-accent text-accent-foreground"
+                          : ""
+                      }`}
                     >
                       <div
                         className="flex items-center justify-between cursor-pointer w-full p-2 rounded-md hover:bg-accent/50"
@@ -145,27 +215,38 @@ export function AppSidebar({
           </SidebarGroup>
         )}
 
-        {/* Navigation */}
+        {/* User Profile Section (Bottom) */}
         <SidebarGroup className="mt-auto">
           <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild>
-                  <NavLink
-                    to="/settings"
-                    className={({ isActive }) =>
-                      `flex items-center gap-2 p-2 rounded-md transition-colors ${isActive
-                        ? 'bg-accent text-accent-foreground'
-                        : 'hover:bg-accent/50'
-                      }`
-                    }
-                  >
-                    <Settings className="h-4 w-4" />
-                    {!collapsed && <span>Settings</span>}
-                  </NavLink>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
+            <div className="flex items-center gap-3 p-2 rounded-md hover:bg-accent/50 transition-colors">
+              {/* Avatar */}
+              <img
+                src="https://ui-avatars.com/api/?name=John+Doe&background=random"
+                alt="User Avatar"
+                className="h-10 w-10 rounded-full border"
+              />
+
+              {/* Info */}
+              {!collapsed && (
+                <div className="flex flex-col flex-1 min-w-0">
+                  <span className="text-sm font-medium truncate">John Doe</span>
+                  <span className="text-xs text-muted-foreground">
+                    Free Plan
+                  </span>
+                </div>
+              )}
+
+              {/* Upgrade button */}
+              {!collapsed && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="ml-auto whitespace-nowrap"
+                >
+                  Upgrade
+                </Button>
+              )}
+            </div>
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
