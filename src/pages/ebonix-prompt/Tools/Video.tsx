@@ -20,10 +20,10 @@ const Video = (props: Props) => {
         </div>
 
         {/* Main content */}
-        <main className="flex-1 bg-background text-foreground p-4 sm:p-6 md:p-8 w-full min-h-screen overflow-y-auto">
+        <main className="flex-1 bg-background text-foreground p-4 sm:p-6 md:p-8 w-full h-full">
           <div className="max-w-[1800px] mx-auto">
             {/* Center Content */}
-            <div className="flex flex-col justify-center items-center min-h-[85vh] text-center px-4  transition-colors duration-500">
+            <div className="flex flex-col justify-center items-center min-h-[80vh] text-center px-4  transition-colors duration-500">
               {/* Play Button */}
               <div className="relative group">
                 {/* Outer glow animation */}
