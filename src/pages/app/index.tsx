@@ -63,44 +63,7 @@ const EbonixApp: FC = () => {
             ))}
           </ul>
         </div>
-
-        {/* User Section */}
-        <div className="border-t border-gray-800 p-4">
-          <p className="text-sm font-semibold">Demo Account</p>
-          <p className="text-xs text-gray-400">hello@ebonixai.com</p>
-        </div>
       </aside>
-
-      {/* Main Content */}
-      <main className="flex-1 flex flex-col items-center justify-center text-center px-4">
-        <h1 className="text-2xl font-bold">👋 Hello, Demo!</h1>
-        <p className="mt-2 text-lg text-gray-300">How can I assist you?</p>
-
-        {/* Search Bar */}
-        <div className="mt-6 w-full max-w-xl">
-          <input
-            type="text"
-            placeholder="Ask anything..."
-            className="w-full px-4 py-3 rounded-md bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
-          />
-        </div>
-
-        {/* Action Buttons */}
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <button className="px-4 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm">
-            🎧 Transcribe audio
-          </button>
-          <button className="px-4 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm">
-            🎵 Isolate sounds
-          </button>
-          <button className="px-4 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm">
-            🎥 Create videos
-          </button>
-          <button className="px-4 py-2 rounded-md bg-gray-800 hover:bg-gray-700 text-sm">
-            🖼️ Create images
-          </button>
-        </div>
-      </main>
     </div>
   );
 };

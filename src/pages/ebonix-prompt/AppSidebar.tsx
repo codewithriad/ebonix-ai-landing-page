@@ -1,29 +1,40 @@
+// import { ProjectModal } from "@/components/modals/ProjectModal";
 import { Button } from "@/components/ui/button";
 import {
   Sidebar,
   SidebarContent,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import {
-  Book,
-  FolderPlus,
-  History,
-  MessageSquare,
-  Plus,
-  Search,
-  Trash2,
-} from "lucide-react";
-import { useEffect, useState } from "react";
+// import {
+//   MicrophoneIcon,
+//   MusicalNoteIcon,
+//   PencilSquareIcon,
+//   PhotoIcon,
+//   SpeakerWaveIcon,
+//   Squares2X2Icon,
+//   VideoCameraIcon,
+// } from "@heroicons/react/24/outline";
+import { ProjectModal } from "@/components/modals/ProjectModal";
+import { Book, FolderPlus, Plus, Search } from "lucide-react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
 import ebonixLogoDark from "/dark-nav-logo.png";
+import ChatBubbleLeftRightIcon from "/dashboard/chat.svg";
+import Coder from "/dashboard/coder.svg";
+import Flag from "/dashboard/flag.svg";
+import Headphone from "/dashboard/headphone.svg";
+import Imagine from "/dashboard/imagine.svg";
+import Music from "/dashboard/music.svg";
+import Video from "/dashboard/play.svg";
+import Voice from "/dashboard/voice.svg";
+import Writer from "/dashboard/writer1.svg";
 import ebonixLogoLight from "/light-nav-logo.png";
 
 interface ChatHistory {
@@ -47,6 +58,7 @@ export function AppSidebar({
   onDeleteChat,
   currentChatId,
 }: AppSidebarProps) {
+  const [open, setOpen] = React.useState(true);
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
   const location = useLocation();
@@ -74,7 +86,10 @@ export function AppSidebar({
   };
 
   return (
-    <Sidebar className={collapsed ? "w-14" : "w-64"} collapsible="icon">
+    <Sidebar
+      className={`bg-gray-500 dark:bg-gray-950 ${collapsed ? "w-14" : "w-64"}`}
+      collapsible="icon"
+    >
       <SidebarHeader className="p-4 border-b">
         {!collapsed && (
           <div className="flex items-center justify-between">
@@ -93,6 +108,7 @@ export function AppSidebar({
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
+              {/* + new chat */}
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
                   <Button
@@ -110,7 +126,7 @@ export function AppSidebar({
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
                   <NavLink
-                    to="/search"
+                    to="/app"
                     className={({ isActive }) =>
                       `flex items-center gap-2 p-2 rounded-md transition-colors ${
                         isActive
@@ -120,7 +136,7 @@ export function AppSidebar({
                     }
                   >
                     <Search className="h-4 w-4" />
-                    {!collapsed && <span>Search chats</span>}
+                    {!collapsed && <span>Home</span>}
                   </NavLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>
@@ -129,7 +145,7 @@ export function AppSidebar({
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
                   <NavLink
-                    to="/library"
+                    to="/app/library"
                     className={({ isActive }) =>
                       `flex items-center gap-2 p-2 rounded-md transition-colors ${
                         isActive
@@ -147,8 +163,83 @@ export function AppSidebar({
               {/* 📂 Projects */}
               <SidebarMenuItem>
                 <SidebarMenuButton asChild>
+                  <div
+                    onClick={() => setOpen(true)}
+                    className="flex items-center gap-2 p-2 rounded-md transition-colors"
+                  >
+                    <FolderPlus className="h-4 w-4" />
+                    {!collapsed && (
+                      <SidebarMenuItem>
+                        <ProjectModalTrigger collapsed={collapsed} />
+                      </SidebarMenuItem>
+                    )}
+                  </div>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        {/* apps and tools */}
+        <SidebarGroup>
+          {/* Tools */}
+          <div className="mt-6 px-4 text-gray-400 text-xs uppercase">Tools</div>
+          <ul className="mt-2 space-y-1">
+            {[
+              {
+                name: "Chat",
+                icon: ChatBubbleLeftRightIcon,
+                link: "/app/chat",
+              },
+              {
+                name: "Writer",
+                icon: Writer,
+                link: "/app/writer",
+              },
+              {
+                name: "Coder",
+                icon: Coder,
+                link: "/app/coder",
+              },
+              {
+                name: "Imagine",
+                icon: Imagine,
+                link: "/app/imagine",
+              },
+              {
+                name: "Video",
+                icon: Video,
+                link: "/app/video",
+              },
+              {
+                name: "Transcriber",
+                icon: Headphone,
+                link: "/app/transcriber",
+              },
+
+              {
+                name: "Voiceover",
+                icon: Voice,
+                link: "/app/voiceover",
+              },
+              {
+                name: "Voice Isolator",
+                icon: Music,
+                link: "/app/voice-isolator",
+              },
+              {
+                name: "Classifier",
+                icon: Flag,
+                link: "/app/classifier",
+              },
+            ].map((app) => (
+              <SidebarMenuItem
+                key={app.name}
+                className="flex items-center space-x-2 px-4 py-2 hover:bg-gray-800 rounded-md cursor-pointer"
+              >
+                <SidebarMenuButton asChild>
                   <NavLink
-                    to="/projects"
+                    to={app.link}
                     className={({ isActive }) =>
                       `flex items-center gap-2 p-2 rounded-md transition-colors ${
                         isActive
@@ -157,63 +248,20 @@ export function AppSidebar({
                       }`
                     }
                   >
-                    <FolderPlus className="h-4 w-4" />
-                    {!collapsed && <span>Projects</span>}
+                    <img
+                      src={app.icon}
+                      alt={app.name}
+                      className="h-5 w-5 object-contain text-gray-300"
+                    />
+                    {!collapsed && (
+                      <span className="text-lg text-slate-200">{app.name}</span>
+                    )}
                   </NavLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
+            ))}
+          </ul>
         </SidebarGroup>
-
-        {/* Chat History */}
-        {!collapsed && chatHistory.length > 0 && (
-          <SidebarGroup>
-            <SidebarGroupLabel className="flex items-center gap-2">
-              <History className="h-4 w-4" />
-              Recent Chats
-            </SidebarGroupLabel>
-            <SidebarGroupContent>
-              <SidebarMenu>
-                {chatHistory.map((chat) => (
-                  <SidebarMenuItem key={chat.id}>
-                    <SidebarMenuButton
-                      asChild
-                      className={`group ${
-                        currentChatId === chat.id
-                          ? "bg-accent text-accent-foreground"
-                          : ""
-                      }`}
-                    >
-                      <div
-                        className="flex items-center justify-between cursor-pointer w-full p-2 rounded-md hover:bg-accent/50"
-                        onClick={() => onSelectChat(chat.id)}
-                      >
-                        <div className="flex items-center gap-2 min-w-0 flex-1">
-                          <MessageSquare className="h-4 w-4 shrink-0" />
-                          <span className="text-sm truncate">
-                            {formatChatTitle(chat.title)}
-                          </span>
-                        </div>
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          className="h-6 w-6 p-0 opacity-0 group-hover:opacity-100 transition-opacity shrink-0"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            onDeleteChat(chat.id);
-                          }}
-                        >
-                          <Trash2 className="h-3 w-3" />
-                        </Button>
-                      </div>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </SidebarGroupContent>
-          </SidebarGroup>
-        )}
 
         {/* User Profile Section (Bottom) */}
         <SidebarGroup className="mt-auto">
@@ -251,5 +299,25 @@ export function AppSidebar({
         </SidebarGroup>
       </SidebarContent>
     </Sidebar>
+  );
+}
+
+function ProjectModalTrigger({ collapsed }: { collapsed?: boolean }) {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <>
+      <SidebarMenuButton asChild>
+        <div
+          className={`flex items-center gap-2 p-2 rounded-md transition-colors hover:bg-accent/50 cursor-pointer`}
+          onClick={() => setOpen(true)}
+        >
+          {!collapsed && <span>Projects</span>}
+        </div>
+      </SidebarMenuButton>
+
+      {/* The Project Modal */}
+      <ProjectModal open={open} setOpen={setOpen} />
+    </>
   );
 }
