@@ -10,6 +10,7 @@ import Dashboard from "./pages/Admin/Dashboard/Dashboard";
 import AllOrders from "./pages/Admin/Dashboard/shared/AllOrders";
 import EbonixPrompt from "./pages/ebonix-prompt/EbonixPrompt";
 import LibraryPage from "./pages/ebonix-prompt/Library/Library";
+import ModalsPage from "./pages/ebonix-prompt/Models/ModalsPage";
 import Chat from "./pages/ebonix-prompt/Tools/Chat";
 import Classifier from "./pages/ebonix-prompt/Tools/Classifier";
 import Coder from "./pages/ebonix-prompt/Tools/Coder";
@@ -48,6 +49,7 @@ const App = React.memo(() => (
               <Route path="/" element={<Index />} />
               <Route path="/app" element={<EbonixPrompt />} />
               <Route path="app/library" element={<LibraryPage />} />
+              <Route path="app/modals" element={<ModalsPage />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/all-users" element={<AllUsersPage />} />
               <Route path="dashboard/all-orders" element={<AllOrders />} />
