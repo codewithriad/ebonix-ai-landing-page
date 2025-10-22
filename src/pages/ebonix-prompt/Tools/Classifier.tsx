@@ -46,10 +46,11 @@ const Classifier = (props: Props) => {
 
               {/* Text Section */}
               <h3 className="text-foreground  text-xl sm:text-3xl font-bold mt-8 mb-3 tracking-tight">
-                Transcriber
+                Classifier
               </h3>
               <p className="text-para text-lg sm:text-xl max-w-md">
-                Precisely transcribe spoken words into written text.
+                Classify content as potentially harmful across several
+                categories.
               </p>
             </div>
 
